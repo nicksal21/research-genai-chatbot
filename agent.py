@@ -4,6 +4,7 @@ Business logic for AI agent with knowledge base integration.
 from dotenv import load_dotenv
 load_dotenv()
 import os
+import re
 from llama_index.retrievers.bedrock import AmazonKnowledgeBasesRetriever
 from llama_index.llms.openai import OpenAI
 from llama_index.core.query_engine import RetrieverQueryEngine
@@ -44,8 +45,6 @@ agent = ReActAgent(
     8. If the retrieved material is insufficient, say so instead of guessing.
     """,
 )
-
-import re
 
 CITATION_PATTERNS = [
     r"Section\s+\d+(\.\d+)*",
